@@ -33,6 +33,7 @@ public class BoardTest {
         assertThat(board.getWidth()).isEqualTo( 1);
 
         assertThat(board.squareAt(0,0)).isEqualTo(square);
-
     }
+
+
 }
