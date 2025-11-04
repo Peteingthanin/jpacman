@@ -2,7 +2,7 @@ package nl.tudelft.jpacman.board;
 
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
-import org.junit.Test;
+
 
 /**.
  * class to test board
@@ -25,9 +25,7 @@ public class BoardTest {
         assertThat(board.getWidth()).isEqualTo(1);
     }
 
-    /**.
-     * Test if one null in grid
-     */
+
     /*@Test
     public void testBoard2() {
         Square square = new BasicSquare();
@@ -48,4 +46,4 @@ public class BoardTest {
     }
 
 
-}
+
