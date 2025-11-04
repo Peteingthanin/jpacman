@@ -5,7 +5,7 @@
 ![Branches](.github/badges/branches.svg)
 
 
-## About
+## About 
 
 Pacman-like game used for teaching software testing.
 It exposes students to the use of git, Gradle, JUnit, and mockito.
