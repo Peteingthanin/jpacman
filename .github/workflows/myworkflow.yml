@@ -18,7 +18,11 @@ on:
 
 jobs:
   build:
+
+
     runs-on: ubuntu-latest
+
+
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
@@ -30,4 +34,3 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: xvfb-run ./gradlew build
-
