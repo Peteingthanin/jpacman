@@ -1,7 +1,7 @@
 package nl.tudelft.jpacman.level;
 import nl.tudelft.jpacman.board.BoardFactory;
-import nl.tudelft.jpacman.board.Square;
 import nl.tudelft.jpacman.npc.ghost.Blinky;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -9,8 +9,8 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.ArrayList;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
+import static org.junit.jupiter.api.Assertions.*;
+import nl.tudelft.jpacman.PacmanConfigurationException;
 /**
  * This is a test class for MapParser.
  */
@@ -41,7 +41,27 @@ public class MapParserTest {
         Mockito.verify(levelFactory, Mockito.times(1)).createGhost();
         Mockito.verify(boardFactory, Mockito.atLeastOnce()).createWall();
         Mockito.verify(boardFactory, Mockito.atLeastOnce()).createGround();
+    }
 
+    /**
+     * Test for the parseMap method (bad map).
+     */
+    @Test
+    public void testParseMapWrong1() {
+        PacmanConfigurationException thrown =
+            assertThrows(PacmanConfigurationException.class, () -> {
+                MockitoAnnotations.initMocks(this);
+                assertNotNull(boardFactory);
+                assertNotNull(levelFactory);
+                MapParser mapParser = new MapParser(levelFactory, boardFactory);
+                ArrayList<String> map = new ArrayList<>();
+                /*
+                Create a map with inconsistent size between
+                each row or contain invalid characters
+                */
+                mapParser.parseMap(map);
+            });
+        Assertions.assertEquals("Input text must consist of at least 1 row.", thrown.getMessage());
     }
 }
 
