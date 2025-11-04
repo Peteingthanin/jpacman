@@ -43,7 +43,7 @@ public class BoardTest {
 
             assertThat(board.squareAt(0, 0)).isEqualTo(square);
         }*/
-    }
+}
 
 
 
